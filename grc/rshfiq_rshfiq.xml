@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<block>
+  <name>RS-HFIQ SDR tranceiver</name>
+  <key>rshfiq_rshfiq</key>
+  <category>[Sdr]/Sources</category>
+  <flags>throttle</flags>
+
+  <import>import rshfiq</import>
+  <make>rshfiq.rshfiq($audio_device_name, $control_device, $freq)
+self.$(id).set_freq($freq)
+  </make>
+  <callback>set_freq($freq)</callback>
+
+  <param>
+    <name>Soundcard name</name>
+    <key>audio_device_name</key>
+    <type>string</type>
+  </param>
+  <param>
+    <name>Serial control port</name>
+    <key>control_device</key>
+    <value>/dev/ttyACM0</value>
+    <type>string</type>
+  </param>
+  <param>
+    <name>Rx frequency</name>
+    <key>freq</key>
+    <value>3500000</value>
+    <type>real</type>
+  </param>
+
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+  <doc>
+  This block wraps the RS-HFIQ SDR transceiver into one convenient GNU Radio source block.
+  The sample rate is fixed at 96000 ksps. At the moment only receiving is supported.
+
+</doc>
+</block>
