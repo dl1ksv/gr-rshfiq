@@ -6,7 +6,8 @@ find_path(GNURADIO_MODULE_DIRECTORY
 	NAMES GrVersion.cmake
 	HINTS ${CMAKE_INSTALL_PREFIX}/lib/cmake/gnuradio ${CMAKE_INSTALL_PREFIX}/lib64/cmake/gnuradio
 	PATHS
-          /usr/lib64/cmake/gnuradio
-          /usr/lib/cmake/gnuradio
-	  /usr/lib/arm-linux-gnueabihf/cmake/gnuradio
+    /usr/lib64/cmake/gnuradio
+    /usr/lib/cmake/gnuradio
+    /usr/lib/x86_64-linux-gnu/cmake/gnuradio
+	  /usr/lib/ar -linux-gnueabihf/cmake/gnuradio
 )
